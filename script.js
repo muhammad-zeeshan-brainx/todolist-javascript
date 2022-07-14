@@ -34,13 +34,6 @@ function updateText(e) {
   }
 }
 
-// function updateText2(e) {
-//   if (e.key === "Enter") {
-//     e.target.innerText = e.target.innerText;
-//     e.target.contentEditable = false;
-//   }
-// }
-
 function addOrDeleteListItem(e) {
   if (e.target.classList.contains("delete-icon")) {
     e.target.parentElement.remove();
