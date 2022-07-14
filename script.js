@@ -22,14 +22,24 @@ addBtn.addEventListener("click", function () {
   newElement.innerHTML = `<input type="checkbox" name="" id="" /><span class="list-text">${input.value}</span><i class="fa-solid fa-pen-to-square edit-icon"></i>
   <i class="fa-solid fa-trash-can delete-icon"></i>`;
   newElement.addEventListener("focusout", updateText);
+  newElement.addEventListener("keypress", updateText);
   input.value = "";
   todoList.append(newElement);
 });
 
 function updateText(e) {
-  e.target.innerText = e.target.innerText;
-  e.target.contentEditable = false;
+  if (e.key === "Enter" || e.type === "focusout") {
+    e.target.innerText = e.target.innerText;
+    e.target.contentEditable = false;
+  }
 }
+
+// function updateText2(e) {
+//   if (e.key === "Enter") {
+//     e.target.innerText = e.target.innerText;
+//     e.target.contentEditable = false;
+//   }
+// }
 
 function addOrDeleteListItem(e) {
   if (e.target.classList.contains("delete-icon")) {
